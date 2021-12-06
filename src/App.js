@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Container, Row } from 'react-bootstrap';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Person from './components/Person';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const App = () => {
+
+    const [data, setData] = useState();
+
+    useEffect(async () => {
+        const response = await axios.get(`https://reqres.in/api/users`);
+        setData(response.data.data);
+    }, []);
+
+    return (
+        <Container>
+            <Row>
+                {data && (
+                    data.map(pr => <Person key={pr.id} info={pr}/>
+                    ))
+                }
+            </Row>
+        </Container>
+    );
 }
 
 export default App;
