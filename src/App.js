@@ -12,7 +12,7 @@ const App = () => {
     const [data, setData] = useState();
 
     useEffect(async () => {
-        const response = await axios.get(`https://reqres.in/api/users`);
+        const response = await axios.get(`https://reqres.in/api/users?per_page=12`);
         setData(response.data.data);
     }, []);
 
