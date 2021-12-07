@@ -20,7 +20,7 @@ const Auth = () => {
         setPassword(event.target.value);
     };
 
-    const handleOnLog = async (event, email, password) => {
+     const handleOnLog = async (event, email, password) => {
         event.preventDefault();
         try {
             const response = await axios.post(`https://reqres.in/api/login`,
@@ -38,12 +38,12 @@ const Auth = () => {
             <Form className="w-25">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="george.bluth@reqres.in" onChange={handleOnChangeEmail}
+                    <Form.Control data-testid="email-input" type="email" placeholder="george.bluth@reqres.in" onChange={handleOnChangeEmail}
                                   value={email}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="123" onChange={handleOnChangePassword} value={password}/>
+                    <Form.Control data-testid="password-input" type="password" placeholder="123" onChange={handleOnChangePassword} value={password}/>
                 </Form.Group>
                 <Button variant="primary" type="submit" onClick={(event) => handleOnLog(event, email, password)}>
                     Submit

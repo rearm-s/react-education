@@ -18,7 +18,7 @@ const App = () => {
 
     return (
         <Container>
-            <Row className="justify-content-center d-flex">
+            <Row className="justify-content-center">
                 <Auth/>
             </Row>
             <Row className="justify-content-center">
