@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row } from 'react-bootstrap';
 
 import Person from './components/Person';
+import Auth from './components/Auth';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,7 +18,10 @@ const App = () => {
 
     return (
         <Container>
-            <Row>
+            <Row className="justify-content-center d-flex">
+                <Auth/>
+            </Row>
+            <Row className="justify-content-center">
                 {data && (
                     data.map(pr => <Person key={pr.id} info={pr}/>
                     ))
