@@ -53,7 +53,7 @@ const Auth = () => {
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
-                <Modal.Body><b>{token}</b></Modal.Body>
+                <Modal.Body>{token}</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
